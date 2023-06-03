@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Js_Task-3</title>
+
+    <style>
+      .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      label {
+        width: 70px;
+        margin-right: 10px;
+        text-align: right;
+      }
+    </style>
+
+    <script>
+      function invalid_highlight(inputElement, text, textId) {
+        inputElement.style.border = "2px solid red";
+
+        var textElement = document.getElementById(textId);
+        textElement.innerText = text;
+        textElement.style.color = "red";
+      }
+
+      function validate() {
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var url = document.getElementById("website");
+        var msg = document.getElementById("message");
+
+        if (name.value.length == 0) {
+          invalid_highlight(name, "This field is required", "r1");
+        }
+
+        if (email.value.length == 0) {
+          invalid_highlight(email, "A valid email address is required", "r2");
+        }
+
+        if (url.value.length == 0) {
+          invalid_highlight(url, "A valid URL is required", "r3");
+        }
+
+        if (msg.value.length == 0) {
+          invalid_highlight(msg, "This field is required", "r4");
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <form action="">
+      <div class="form-row">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+        <span id="r1" style="margin-left: 10px"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" />
+        <span id="r2" style="margin-left: 10px"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="website">Website:</label>
+        <input type="url" name="website" id="website" />
+        <span id="r3" style="margin-left: 10px"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" cols="20" rows="3"></textarea>
+        <span id="r4" style="margin-left: 10px"></span>
+      </div>
+
+      <input
+        type="button"
+        value="Submit"
+        onclick="validate()"
+        style="margin-left: 80px"
+      />
+    </form>
+  </body>
+</html>
+<!--Coded by Sourav-->
